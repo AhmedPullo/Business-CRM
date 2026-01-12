@@ -1,15 +1,12 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
-import { useAuth } from "@/hooks/use-auth";
 import {
   LayoutDashboard,
   Users,
   FileText,
   Truck,
-  LogOut,
   Package2
 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const navItems = [
   { href: "/", label: "Dashboard", icon: LayoutDashboard },
@@ -20,7 +17,6 @@ const navItems = [
 
 export function Sidebar() {
   const [location] = useLocation();
-  const { user, logout, isLoggingOut } = useAuth();
 
   return (
     <div className="flex h-screen w-64 flex-col bg-card border-r border-border shadow-sm">
@@ -53,33 +49,16 @@ export function Sidebar() {
       </div>
 
       <div className="border-t border-border p-4">
-        {user && (
-          <div className="mb-4 flex items-center gap-3 rounded-lg border border-border bg-secondary/30 p-3">
-            <Avatar className="h-9 w-9 border border-border">
-              <AvatarImage src={user.profileImageUrl || undefined} />
-              <AvatarFallback className="bg-primary/10 text-primary">
-                {user.firstName?.[0]}{user.lastName?.[0]}
-              </AvatarFallback>
-            </Avatar>
-            <div className="overflow-hidden">
-              <p className="truncate text-sm font-medium text-foreground">
-                {user.firstName} {user.lastName}
-              </p>
-              <p className="truncate text-xs text-muted-foreground">
-                {user.email}
-              </p>
-            </div>
+        <div className="flex items-center gap-3 rounded-lg border border-border bg-secondary/30 p-3">
+          <div className="overflow-hidden">
+            <p className="truncate text-sm font-medium text-foreground">
+              Admin Access
+            </p>
+            <p className="truncate text-xs text-muted-foreground">
+              Management Portal
+            </p>
           </div>
-        )}
-        
-        <button
-          onClick={() => logout()}
-          disabled={isLoggingOut}
-          className="flex w-full items-center gap-3 rounded-lg px-4 py-2.5 text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors disabled:opacity-50"
-        >
-          <LogOut className="h-5 w-5" />
-          {isLoggingOut ? "Logging out..." : "Log Out"}
-        </button>
+        </div>
       </div>
     </div>
   );
