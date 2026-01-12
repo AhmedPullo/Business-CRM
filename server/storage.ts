@@ -6,8 +6,6 @@ import {
   type InvoiceWithClient, type DeliveryWithInvoice
 } from "@shared/schema";
 import { eq, desc, sql } from "drizzle-orm";
-// Re-export auth storage
-export { authStorage, type IAuthStorage } from "./replit_integrations/auth/storage";
 
 export interface IStorage {
   // Clients
