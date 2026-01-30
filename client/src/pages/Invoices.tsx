@@ -211,7 +211,7 @@ export default function Invoices() {
                     </div>
                   </TableCell>
                   <TableCell>{format(new Date(invoice.date), "MMM dd, yyyy")}</TableCell>
-                  <TableCell className="font-semibold">${Number(invoice.amount).toFixed(2)}</TableCell>
+                  <TableCell className="font-semibold">{Number(invoice.amount).toFixed(2)} MRU</TableCell>
                   <TableCell>
                     <Badge 
                       variant="outline" 
@@ -302,7 +302,7 @@ export default function Invoices() {
                   name="amount"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Amount ($)</FormLabel>
+                      <FormLabel>Amount (ouiguiya)</FormLabel>
                       <FormControl>
                         <Input type="number" step="0.01" {...field} />
                       </FormControl>

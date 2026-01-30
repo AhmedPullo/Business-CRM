@@ -56,7 +56,7 @@ export default function Dashboard() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-8">
           <StatCard
             title="Total Revenue"
-            value={`$${Number(stats?.totalSales || 0).toLocaleString()}`}
+            value={`${Number(stats?.totalSales || 0).toLocaleString()}MRU`}
             icon={DollarSign}
             description="Total collected revenue"
           />
@@ -100,7 +100,7 @@ export default function Dashboard() {
                     fontSize={12} 
                     tickLine={false} 
                     axisLine={false}
-                    tickFormatter={(value) => `$${value}`}
+                    tickFormatter={(value) => `${value}MRU`}
                   />
                   <Tooltip 
                     cursor={{ fill: 'rgba(0,0,0,0.05)' }}
